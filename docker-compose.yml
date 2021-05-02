@@ -19,5 +19,14 @@ services:
       context: host1
     networks: 
       - jenkins_ansible_network
+  node2:
+    container_name: kibana
+    image: centos_sshd
+    networks: 
+      - jenkins_ansible_network
+    depends_on:
+      - node1
+    ports:
+      - 5601:5601 
 networks:
   jenkins_ansible_network:
