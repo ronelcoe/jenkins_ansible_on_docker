@@ -1,0 +1,6 @@
+jenkins_ansible/*
+!jenkins_ansible/.gitkeep
+!jenkins_ansible/Dockerfile
+*/*.key
+.DS_Store
+jenkins_ansible/elk-ansible/*

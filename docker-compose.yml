@@ -1,0 +1,23 @@
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins_ansible
+    image: jenkins_ansible
+    build: 
+      context: jenkins_ansible
+    user: root
+    ports:
+      - 8080:8080
+    volumes:
+      - "$PWD/jenkins_ansible:/var/jenkins_home"
+    networks:
+      - jenkins_ansible_network
+  node1:
+    container_name: centos_host1
+    image: centos_sshd
+    build: 
+      context: host1
+    networks: 
+      - jenkins_ansible_network
+networks:
+  jenkins_ansible_network:
